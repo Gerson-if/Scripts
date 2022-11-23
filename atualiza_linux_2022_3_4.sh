@@ -5,7 +5,7 @@ var=contadora ## variavel de controle do caso 5
 ## Autor(a); Gerson Ferreira | Dev 
 ## Analista de Sistemas 
 ## instagran ;tech.ti 
-## email: gersodecastro@gmail.com
+## email: 
 ## versão beta 3.4 de 2022
 ## github ; github.com/Gerson-if
 
