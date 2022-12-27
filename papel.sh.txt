@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Verifique se o gsettings ou o xfconf-query estão instalados
+if ! [ -x "$(command -v gsettings)" ] && ! [ -x "$(command -v xfconf-query)" ]; then
+  echo 'Erro: gsettings ou xfconf-query não estão instalados.' >&2
+  exit 1
+fi
+
+# Defina o caminho para a imagem do novo papel de parede
+wallpaper_path="/caminho/para/a/imagem/do/novo/papel/de/parede.jpg"
+
+# Verifique qual ambiente está sendo usado
+if [ -x "$(command -v gsettings)" ]; then
+  # Defina a opção de imagem do papel de parede para o Gnome
+  wallpaper_option="'file://$wallpaper_path'"
+
+  # Mude o papel de parede usando o gsettings
+  gsettings set org.gnome.desktop.background picture-uri $wallpaper_option
+else
+  # Mude o papel de parede usando o xfconf-query
+  xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/image-path -s $wallpaper_path
+fi
